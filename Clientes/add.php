@@ -7,11 +7,11 @@ if ( isset($_POST) && !empty($_POST) ){
 
     
 
-    $save = $p->save($_POST);
-    if (save){
-        $mensaje = '<div class="alert alert-success"> Enviado </div>';
+    $save = $p-> save($_POST); /* UTILICE LA RECETA SAVE */
+    if($save){
+      $mensaje= '<div class="alert alert-success" role="alert">Usuario creado correctamente </div> ';
     }else{
-        $mensaje = '<div class="alert alert-danger"> Error al enviar </div>';
+      $mensaje='<div class="alert alert-danger" role="alert">Error al crear el usuario </div> ';
     }
   }
 
@@ -25,6 +25,7 @@ if ( isset($_POST) && !empty($_POST) ){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 <body>
+    <?php include('../menu.php')?>
     <div class="container">
         <?php 
          if(isset($mensaje)){
@@ -72,7 +73,7 @@ if ( isset($_POST) && !empty($_POST) ){
 
             <div class="row mb-2">
             <div class="col">
-                <input type="text" name="Mensaje" id="Mensaje" placeholder="Mansaje del Cliente" class="form-control"/>
+                <input type="textarea" name="Mensaje" id="Mensaje" placeholder="Mansaje del Cliente" class="form-control"/>
             </div>
         </div>
         <button class="btn btn-success"> Enviar </button>
